@@ -1,0 +1,197 @@
+Alexander Kuhn
+ID 101023154
+
+Question 1 (family)
+parent(X,Y)
+Query: parent(alan,derek).
+Expected Result: 	true; false.
+Actual Result:		true; false.
+
+Query: parent(emma,derek).
+Expected Result: 	true; false.
+Actual Result:		true; false.
+
+Query: parent(william,derek).
+Expected Result: 	false.
+Actual Result:		false.
+
+different(X,Y)
+Query: different(william,derek).
+Expected Result: 	true.
+Actual Result:		true.
+
+Query: different(william,william).
+Expected Result: 	false.
+Actual Result:		false.
+
+is_mother(X)
+Query: is_mother(emma).
+Expected Result: 	true ;true ;true.
+Actual Result:	 	true ;true ;true.
+
+Query: is_mother(derek).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+is_father(X)
+Query: is_father(emma).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+Query: is_father(derek).
+Expected Result: 	true.
+Actual Result:	 	true.
+
+aunt(X,Y)
+Query: aunt(nicole, susan).
+Expected Result: 	true.
+Actual Result:	 	true.
+
+Query: aunt(philip, susan).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+Query: aunt(jane, susan).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+uncle(X,Y)
+Query: uncle(nicole, michael).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+Query: uncle(derek, michael).
+Expected Result: 	true.
+Actual Result:	 	true.
+
+Query: uncle(michael, michael).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+brother(X,Y)
+Query: brother(derek,philip).
+Expected Result: 	true.
+Actual Result:	 	true.
+
+Query: brother(derek,derek)
+Expected Result: 	false.
+Actual Result:	 	false.
+
+sister(X,Y)
+Query: sister(nicole,derek).
+Expected Result: 	true.
+Actual Result:	 	true.
+
+Query: sister(derek,philip).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+grandfather(X,Y)
+Query: grandfather(william,nicole).
+Expected Result: 	true; false.
+Actual Result:	 	true; false.
+
+Query: grandfather(william,susan).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+grandmother(X,Y)
+Query: grandmother(anna,philip).
+Expected Result: 	true; false.
+Actual Result:	 	true; false.
+
+Query: grandmother(anna,alan).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+ancestor(X,Y)
+Query: ancestor(william,nicole).
+Expected Result: 	true; false.
+Actual Result:	 	true; false.
+
+Query: grandmother(nicole,susan).
+Expected Result: 	false.
+Actual Result:	 	false.
+
+
+
+Question 3
+lastEle(X,Y)
+Query: lastEle(X,[how,are,you,today]).
+Expected Result: 	X = today ; false.
+Actual Result:	 	X = today ; false.
+
+gradeMap(L,R)
+Query: gradeMap([0, 16, 49, 55, 63, 78, 92], R).
+Expected Result: 	R=[f,f,f,d,c,b,a] ; false.
+Actual Result:	 	R=[f,f,f,d,c,b,a] ; false.
+
+split(List, Pivot, L1, L2)
+Query: split([4,7,1,8,2,9,3],5, L1, L2).
+Expected Result: L1 = [4, 1, 2, 3], L2 = [7, 8, 9] ; false.
+Actual Result: L1 = [4, 1, 2, 3], L2 = [7, 8, 9] ; false.
+
+myNextto(X,Y,L)
+Query: myNextto(2,4,[5,6,2,4,8]).
+Expected Result: true ; false.
+Actual Result: true ; false.
+
+Query: myNextto(6,5,[5,6,2,4,8]).
+Expected Result: true ; false.
+Actual Result: true ; false.
+
+
+
+
+Question 4
+myAppend(L1, L2, L3):-
+Query: myAppend([a,b],[c,d],L).
+Expected Result: L = [a,b,c,d].
+Actual Result: L = [a,b,c,d].
+
+myFirst(X,L)
+Query: myFirst(a,[a,b,c,d]).
+Expected Result: true; true; true; true; false. //multiple trues because it always checks the whole list
+Actual Result: true; true; true; true; false.
+
+myLast(X,L)
+Query: myLast(d,[a,b,c,d]).
+Expected Result: true ; false.
+Actual Result: true ; false.
+
+myNexttoAlt(X,Y,L)
+Query: myNexttoAlt(2,4,[5,6,2,4,8]).
+Expected Result: true ; false.
+Actual Result: true ; false.
+
+Query: myNexttoAlt(6,5,[5,6,2,4,8]).
+Expected Result: true ; false.
+Actual Result: true ; false.
+
+myReverse(L1,L2)
+Query: myReverse([5,6,2,4,8], L).
+Expected Result: L = [8, 4, 2, 6, 5].
+Actual Result: L = [8, 4, 2, 6, 5].
+
+
+
+
+
+Question 5 //unfinished - ran out of time
+list(L)
+Query: list(5).
+Expected Result: false.
+Actual Result: false.
+
+Query: list([5,9]).
+Expected Result: false.
+Actual Result: false.
+
+treeFlat(T,L)
+Query: treeFlat([1,[2,3],[[4,[5]],6]],[1,2,3,4,5,6])
+Expected Result: true ; false.
+Actual Result: true ; false.
+
+Query: treeFlat([1,[2,3],[[4,[5]],6]], L).
+Expected Result: L = [1,2,3,4,5,6]
+Actual Result: L = [1,2,3,4,5,6] //actually returns many, many permutations of the flattened tree, but the first result is the one we want
